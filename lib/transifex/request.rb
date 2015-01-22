@@ -33,7 +33,6 @@ module Transifex
       }
 
       Faraday.new(options) do |builder|
-        builder.use FaradayMiddleware::Mashify
         builder.use Faraday::Response::ParseJson, :content_type => /\bjson$/
         builder.use Transifex::Response::RaiseHttpException
 
