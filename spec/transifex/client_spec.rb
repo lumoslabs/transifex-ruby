@@ -14,7 +14,7 @@ describe Transifex::Client do
     end
 
     it 'returns an array of Project objects' do
-      subject.each {|p| p.should be_a Transifex::Project }
+      subject.each {|p| expect(p).to be_a(Transifex::Project) }
     end
   end
 
@@ -29,9 +29,7 @@ describe Transifex::Client do
       )
     end
 
-    it 'returns a Project object' do
-      should be_a Transifex::Project
-    end
+    it { is_expected.to be_a(Transifex::Project) }
 
     describe '#resources' do
       subject { client.project(slug).resources }
@@ -44,7 +42,7 @@ describe Transifex::Client do
       end
 
       it 'returns an array of Resource objects' do
-        subject.each {|p| p.should be_a Transifex::Resource }
+        subject.each {|p| expect(p).to be_a(Transifex::Resource) }
       end
     end
 
@@ -60,7 +58,7 @@ describe Transifex::Client do
       end
 
       it 'returns an Resource object' do
-        subject.should be_a Transifex::Resource
+        expect(subject).to be_a(Transifex::Resource)
       end
 
       describe '#stats' do
@@ -75,9 +73,7 @@ describe Transifex::Client do
           )
         end
 
-        it 'returns an Stats object' do
-          subject.should be_a Transifex::Stats
-        end
+        it { is_expected.to be_a(Transifex::Stats) }
       end
     end
 
@@ -92,7 +88,7 @@ describe Transifex::Client do
       end
 
       it 'returns an array of Language objects' do
-        subject.each {|p| p.should be_a Transifex::Language }
+        subject.each {|p| expect(p).to be_a(Transifex::Language) }
       end
     end
 
